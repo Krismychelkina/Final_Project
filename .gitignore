@@ -3,5 +3,7 @@ node_modules
 package-lock.json
 cypress/screenshots
 cypress/downloads
+cypress/.DS_Store
+cypress/fixtures/testData.json
 
 
