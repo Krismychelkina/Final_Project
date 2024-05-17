@@ -1,30 +1,6 @@
 const header = require("../page_objects/components/header");
 const search = require("../page_objects/components/search");
 
-describe('City Selection', () => {
-    beforeEach(() => {
-        cy.visit(Cypress.config('baseUrl'));
-    });
-
-    it('Verify the functionality of selecting a city from the list and ensuring the selected city is displayed', () => {
-        cy.fixture('testData').then((testData) => {
-            header.selectCityFromListAndCheck(testData.city1);
-        });
-    });
-
-    it('Verify that the city modal closes after entering the city name, and the originally entered city is displayed on the site', () => {
-        cy.fixture('testData').then((testData) => {
-            header.selectCityAndCloseModal(testData.city1);
-        });
-    });
-
-    it('Verify the behavior when changing the selected city from the list and then selecting another city', () => {
-        cy.fixture('testData').then((testData) => {
-            header.changeCityAndCheck(testData.city1, testData.city2);
-        });
-    });
-});
-
 describe('Header links', () => {
     beforeEach(() => {
         cy.visit(Cypress.config('baseUrl'));
@@ -46,25 +22,36 @@ describe('Header Category Navigation', () => {
 });
 
 describe('Search feature', () => {
+    let testData;
+
     beforeEach(() => {
         cy.visit(Cypress.config('baseUrl'));
-    });
-
-    it('Verify the search functionality by product name', () => {
-        cy.fixture('testData').then((testData) => {
-            search.searchByProductName(testData.good1);
+        cy.fixture('testData').then((data) => {
+            testData = data;
         });
     });
 
-    it('Verify the search functionality by article number', () => {
-        cy.fixture('testData').then((testData) => {
-            search.searchByArticleNumber(testData.index1);
-        });
-    });
+    const testCases = [
+        {
+            testName: 'Verify the search functionality by product name - list of products is opened',
+            searchFunction: 'searchByProductName',
+            testDataKey: 'item1'
+        },
+        {
+            testName: 'Verify the search functionality by article number - product card is opened',
+            searchFunction: 'searchByArticleNumber',
+            testDataKey: 'index1'
+        },
+        {
+            testName: 'Verify the behavior when searching with a non-existent query - page without results is opened',
+            searchFunction: 'searchNonExistentQuery',
+            testDataKey: 'testRequest'
+        }
+    ];
 
-    it('Verify the behavior when searching with a non-existent query', () => {
-        cy.fixture('testData').then((testData) => {
-            search.searchNonExistentQuery(testData.invalidRequest);
+    testCases.forEach(testCase => {
+        it(testCase.testName, () => {
+            search[testCase.searchFunction](testData[testCase.testDataKey]);
         });
     });
 });

@@ -56,7 +56,6 @@ class CartPage {
     get goToCheckoutPageButton(){
         return cy.get('._buttonBackground_hj5hh_6 > .x-button');
     }
-
 }
 
 module.exports = new CartPage();

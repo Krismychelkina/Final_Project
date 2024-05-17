@@ -1,5 +1,4 @@
 class LoginModal {
-
     get emailInput() {
         return cy.get('input[aria-label="Электронная почта"]');
     }

@@ -1,5 +1,4 @@
 class Footer {
-
     get countryNameBelarus() {
         return cy.get('._countryName_xilgb_54');
     }

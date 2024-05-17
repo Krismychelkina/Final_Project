@@ -1,13 +1,13 @@
 {
   "city1": "Брест",
   "city2": "Минск",
-  "good1": "блузка",
+  "item1": "блузка",
   "index1": "rtlacf350703",
   "index2": "RTLACF350703",
-  "invalidRequest": "тестовыйзапрос",
-  "promo": "TAKEMORE33",
+  "testRequest": "тестовыйзапрос",
+  "promo": "TESTPROMO",
   "invalidEmail": "aliciashkris@gmail.com",
   "validEmail": "krismychelkina@gmail.com",
   "invalidPassword": "111RRRRtttt",
-  "validPassword": "TUTOCITOZXC"
+  "validPassword": "TUTOCITOZXC1!"
 }
