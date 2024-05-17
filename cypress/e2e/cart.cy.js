@@ -37,7 +37,7 @@ describe('Full cart tests', () => {
     it('Verify the behavior when an invalid promo code is applied to the cart - no promos is added', () => {
         cy.fixture('testData').then((testData) => {
             cartPage.addPromo(testData.promo);
-            cartPage.promoUnavailable.should('contain.text', 'Акция недоступна')
+            cartPage.promoUnavailable.should('contain.text', 'Акция не найдена')
         });
     });
 

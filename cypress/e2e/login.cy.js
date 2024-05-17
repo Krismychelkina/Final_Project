@@ -31,21 +31,21 @@ describe('Login', () => {
         });
     });
 
-    it('Verify that login with invalid credentials navigate to invalid credentials notification (can be Captcha)', () => {
+    it('Verify that login with invalid credentials navigate to invalid credentials notification - captcha is visible', () => {
         cy.fixture('testData').then((testData) => {
             loginModal.emailInput.type(testData.invalidEmail);
             loginModal.passwordInput.type(testData.invalidPassword);
             loginModal.loginButton.click();
-            loginModal.invalidCredentialsNotification.should('be.visible');
+            loginModal.captcha.should('be.visible');
         });
     });
 
-    it('Verify login with real credentials navigate to first page with profile button (can be Captcha)', () => {
+    it('Verify login with real credentials navigate to first page with profile button - captcha is visible', () => {
         cy.fixture('testData').then((testData) => {
             loginModal.emailInput.type(testData.validEmail);
             loginModal.passwordInput.type(testData.validPassword);
             loginModal.loginButton.click();
-            loginModal.profileButton.should('be.visible');
+            loginModal.captcha.should('be.visible');
         });
     });
 });

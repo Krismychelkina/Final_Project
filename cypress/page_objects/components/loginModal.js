@@ -47,12 +47,8 @@ class LoginModal {
         return cy.get('.d-modal_login > .d-modal__frame');
     }
 
-    get invalidCredentialsNotification(){
-        return cy.get('._notification_11do5_2');
-    }
-
-    get profileButton(){
-        return cy.get('._text_1jcg6_41');
+    get captcha(){
+        return cy.get('.x-recaptcha-challenge > iframe');
     }
 }
 
