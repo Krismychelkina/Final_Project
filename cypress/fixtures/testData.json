@@ -1,0 +1,13 @@
+{
+  "city1": "Брест",
+  "city2": "Минск",
+  "item1": "блузка",
+  "index1": "rtlacf350703",
+  "index2": "RTLACF350703",
+  "testRequest": "тестовыйзапрос",
+  "promo": "TESTPROMO",
+  "invalidEmail": "2@gmail.com",
+  "validEmail": "1@gmail.com",
+  "invalidPassword": "111RRRRtttt",
+  "validPassword": "fjfjsksks"
+}
